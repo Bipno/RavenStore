@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RavenIMS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    animation:10s bcd infinite;
+    background-color: #00203FFF;
+    animation-delay: 2s;
+}
+
+@keyframes bcd{
+    50% {background-color: #ADEFD1FF;}
+    100% {background-color: #00203FFF;}
+}
+
+.header{
+    margin: 0px;
+    padding: 20px;
+    border-bottom: 3px solid rgb(87, 206, 87);
+    background-color: #ADEFD1FF;
+    animation: 10s cde infinite;
+    animation-delay: 2s;
+}
+
+@keyframes cde{
+    50% {background-color: #00203FFF}
+    100% {background-color: #ADEFD1FF;}
+}
+
+.abot{
+    padding-top: 10px;
+    width: 100%;
+    background-color:#ADEFD1FF ;
+    animation: 10s efg infinite;
+    animation-delay: 2s;
+    border-top: 3px solid rgb(87, 206, 87);
+    border-bottom: 3px solid rgb(87, 206, 87);
+    text-align: center;
+    color: white;
+}
+
+
+@keyframes efg{
+    50% {background-color: #00203FFF;}
+    100% {background-color: #ADEFD1FF;}
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="head" title="RavenIMS">
+                <i class="fa fa-renren"></i> Raven<span class="halfHead">IMS<sup style="font-size:40%; color: white;">&reg</sup>
+                </span>
+            </h1>
+            <button class="logInBtnNavBar" title="Log in" onclick="showSide();">
+                <i class="fa fa-sign-in" aria-hidden="true"> </i> LOG IN
+            </button>
+        </div>
+        <div id="loginArea" class="area">
+            <a href="javascript:void(0)" title="Close" class="closebtn" onclick="closeSide()">&times;</a>
+            <button class="panelBtn" title="Login On Admin Panel" onclick="a();">Teacher Panel</button>
+            <br />
+            <button class="panelBtn" title="Login On Employee Panel" onclick="e();">Admin Panel</button>
+        </div>
+
+
+        <div class="adminPanelLogin" id="adminLogin">
+            <a href="javascript:void(0)" title="Close" class="closebtn" onclick="closeSideOfAdminLogin()">&times;</a>
+            <h1 class="headd" title="RavenIMS">
+                <i class="fa fa-renren"></i> Raven<span class="halfHead">IMS<sup style="font-size:40%; color: white;">&reg</sup>
+                </span>
+            </h1>
+            <p class="panels">TEACHER PANEL</p>
+            <i class="fa fa-angle-double-down"></i>
+
+            <div class="signUpForm">
+                <p class="signUpHeading">LOG IN</p>
+                <p id="error2">You have entered a wrong email or password!</p>
+                <form action="JavaScript:void(0)" onsubmit="adminLogin();">
+                    <label class="text">Email
+                        <br />
+                        <input type="email" class="input" placeholder="Email..." required="required" id="emailM" onfocus="this.className += ' inputfocus'"
+                            onblur="this.className='input'">
+                    </label>
+                    <br />
+                    <label class="text">Password
+                        <br />
+                        <input type="password" class="input" placeholder="Password..." required="required" id="passwordM" onfocus="this.className += ' inputfocus'"
+                            onblur="this.className='input'">
+                    </label>
+                    <br />
+                    <input type="submit" value="LOG IN" class="submitBtn">
+                </form>
+        
+                <div id="display1">
+                    <i class="fa fa-spinner"></i> Logging in...</div>
+            </div>
+        </div>
+
+        <div class="employeePanelLogin" id="employeeLogin">
+            <a href="javascript:void(0)" title="Close" class="closebtn" onclick="closeSideOfEmployeeLogin()">&times;</a>
+            <h1 class="headd" title="RavenIMS">
+                <i class="fa fa-renren"></i> Raven<span class="halfHead">IMS<sup style="font-size:40%; color: white;">&reg</sup>
+                </span>
+            </h1>
+            <p class="panels">ADMIN PANEL</p>
+            <i class="fa fa-angle-double-down"></i>
+            <div class="signUpForm">
+                <p class="signUpHeading">SIGN UP</p>
+                <form action="JavaScript:void(0)" onsubmit="signUpEmployee();">
+                    <label class="text">Full Name
+                        <br />
+                        <input type="text" class="input" placeholder="Full Name..." required="required" id="fullName" onfocus="this.className += ' inputfocus'"
+                            onblur="this.className='input'">
+                    </label>
+                    <br />
+                    <label class="text">Email
+                        <br />
+                        <input type="email" class="input" placeholder="Email..." required="required" id="email" onfocus="this.className += ' inputfocus'"
+                            onblur="this.className='input'">
+                    </label>
+                    <br />
+                    <label class="text">Password
+                        <br />
+                        <input type="password" class="input" placeholder="Password..." required="required" id="password" onfocus="this.className += ' inputfocus'"
+                            onblur="this.className='input'">
+                    </label>
+                    <br />
+                    <label class="agreement">
+                        <input type="checkbox" required="required"> Accept the terms and polices.</label>
+                    <br />
+                    <input type="submit" value="SIGN UP" class="submitBtn">
+                </form>
+                <div id="display">
+                    <i class="fa fa-spinner"></i> Signing up...</div>
+                <hr / style="width:70%; opacity:0.5; size:0.5px">
+                <p class="acc">Already have an account?</p>
+                <button class="loginbtn" onclick="setInterval(function(){location = 'employelogin.html'},'1000')">LOG IN</button>
+            </div>
+        </div>
+        <div class="intro">
+            <h1 class="welcomeHead" id="a">RavenIMS</h1>
+            <p class="welcomeSubHead">For Better Connection</p>
+            <a href="#knowMore"><button class="subScribeBtn"><i class="fa fa-angle-double-down" style="color:#454955"></i> KNOW MORE!</button></a>
+        </div>
+        <div class="abot" id="about">
+            <div id="knowMore"class="img" title="RavenIMS"><img src="ab.jpg" width="150px;" height="150px;"></div>
+            <h1 class="samoohead" title="RavenIMS">RavenIMS</h1>
+            <p class="bio"><span class="coma">❝</span> Our College Inventory System is designed to streamline the management of resources<br> 
+                and assets within our institution. This user-friendly platform empowers faculty, staff,<br> and administrators to efficiently track, manage, and optimize inventory while ensuring 
+               <br> transparency and accountability.<span class="coma"> ❞</span> </p>
+        </div>
+       
+    </div>
+    <script src="app.js"></script>
+    <script src="sweetalert2.js"></script>
+</body>
+
+</html>
